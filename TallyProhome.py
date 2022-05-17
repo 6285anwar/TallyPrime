@@ -1,7 +1,4 @@
 from tkinter import *
-from tkinter import messagebox
-import tkinter as tk
-from tkinter.font import BOLD
 
 top = Tk()
 
@@ -9,6 +6,17 @@ top = Tk()
 w = top.winfo_screenwidth()
 h = top.winfo_screenheight()
 top.geometry("%dx%d" % (w, h))
+
+#function on trial balance
+
+def trialbalance():
+   
+    trialbalanc = Label(top, text="Trial Balance", fg='black', bg='#00c8ff', font=(
+    'Arial 7 bold'), anchor='w').place(x=1, y=60, width=1219, height=13)
+
+    trialbalanceform = Label(top, text="", fg='#00c8ff', bg='green', font=(
+    'Arial 9 underline'), anchor='w').place(x=1, y=73, width=1219, height=604)
+
 
 
 
@@ -39,7 +47,6 @@ b8 = Button(top, text="P:Print", activeforeground="black", activebackground="whi
             fg='white', bg='#3a646b', borderwidth=0, underline=0, font=('Arial 10')).place(x=1127, y=33)
 b9 = Button(top, text="F1:Help", activeforeground="black", activebackground="white",
             fg='white', bg='#3a646b', borderwidth=0, underline=0, font=('Arial 10')).place(x=1227, y=33)
-
 # NavBar End
 
 
@@ -57,13 +64,26 @@ menuname = Label(top,text="ACCOUNTING", fg='#558de0', bg='#a9ceeb', borderwidth=
     'Arial 7 '), anchor='center').place(x=753, y=288, width=202, height=19)
 
 
-b10 = Button(top,text = "Trial Balance",activeforeground = "black", activebackground = "#ffbe23",fg='black',bg='#a9ceeb',borderwidth=0,font=('Calibri  12')).place(relx=0.551, rely=0.440,relwidth=.148)
+b10 = Button(top,text = "Trial Balance",command=trialbalance, activeforeground = "black", activebackground = "#ffbe23",fg='black',bg='#a9ceeb',borderwidth=0,font=('Calibri  12')).place(relx=0.551, rely=0.440,relwidth=.148)
 b11 = Button(top,text = "Day Book",activeforeground = "black", activebackground = "#ffbe23",fg='black',bg='#a9ceeb',borderwidth=0,font=('Calibri  12')).place(relx=0.551, rely=0.480,relwidth=.148)
 b12 = Button(top,text = "Cash Flow",activeforeground = "black", activebackground = "#ffbe23",fg='black',bg='#a9ceeb',borderwidth=0,font=('Calibri  12')).place(relx=0.551, rely=0.520,relwidth=.148)
 b13 = Button(top,text = "Funds Flow",activeforeground = "black", activebackground = "#ffbe23",fg='black',bg='#a9ceeb',borderwidth=0,font=('Calibri  12')).place(relx=0.551, rely=0.560,relwidth=.148)
 # b14 = Button(top,text = "Stock Transfer Journal Register",activeforeground = "black", activebackground = "#ffbe23",fg='#3385ff',bg='#ffffff',borderwidth=0,font=('Arial 10')).place(relx=0.551, rely=0.600,relwidth=.148)
 # b15 = Button(top,text = "Physical Stock Register",activeforeground = "black", activebackground = "#ffbe23",fg='#3385ff',bg='#ffffff',borderwidth=0,font=('Arial 10')).place(relx=0.551, rely=0.640,relwidth=.148)
 # b16 = Button(top,text = "Quit",activeforeground = "black", activebackground = "#ffbe23",fg='#3385ff',bg='#ffffff',borderwidth=0,font=('Arial 10')).place(relx=0.551, rely=0.680,relwidth=.148)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # name = Label(top, fg='black',bg='#8accf2',font=('Arial 7 bold')).place(x = 506,y = 2,width=300,height=500,)
