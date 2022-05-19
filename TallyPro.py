@@ -1,6 +1,12 @@
+from distutils.cmd import Command
 from tkinter import *
+from tkinter import font
 from tkinter.font import BOLD
 from turtle import Screen, onclick
+from cProfile import label
+from textwrap import fill
+from tkinter import *
+from tkinter import ttk
 
 top = Tk()
 
@@ -195,7 +201,7 @@ def trialbalance():
 
 
 
-
+   
 
     # f161=Frame(selected_ledgers_frame,bg="white",relief=RAISED,)
     # f161.place(x=978,y=160,width=120,height=420)
@@ -508,15 +514,62 @@ def ledgervouchers():
 
     f111=Frame(selected_ledgers_frame,bg="white",relief=RAISED)
     f111.place(x=75,y=3,width=100,height=23)
-    l1f2=Label(f111,text="Ledger name",font=("Arial",10,"bold"),bg="white",fg="black",)
+    l1f2=Label(f111,text=" Ledger name",font=("Arial",10,"bold"),bg="white",fg="black",)
     l1f2.place(x=40,y=10,anchor="center")
     
     l1f2=Label(top,text="April 1-2020 to April 1-2021",font=("Arial",10,"bold"),bg="white",fg="black")
     l1f2.place(x=1120,y=89,anchor="center")
     
 
+    t3 = ttk.Treeview(top)
+    t3['columns']=('Date','Particulars','Vch Type','Vch No.','Debit','Credit')
+    t3.column('#0', width=0, stretch=NO)
+    t3.column('Date', anchor=W, width=100,minwidth=100)
+    t3.column('Particulars', anchor=W, width=405,minwidth=425)
+    t3.column('Vch Type', anchor=CENTER, width=125,minwidth=125)
+    t3.column('Vch No.', anchor=CENTER, width=125,minwidth=125)
+    t3.column('Debit', anchor=CENTER, width=125,minwidth=125)
+    t3.column('Credit', anchor=CENTER, width=125,minwidth=125)
+    
+    separator = ttk.Separator(top, orient='horizontal')
+    separator.place(relx=0.00, rely=0.19, relheight=0, relwidth=0.893)
+
+    t3.heading('#0', text='', anchor=CENTER)
+    t3.heading('Date', text='Date', anchor=W)
+    t3.heading('Particulars', text='Particulars', anchor=W, )
+    t3.heading('Vch Type', text='Vch Type', anchor=CENTER)
+    t3.heading('Vch No.', text='Vch No.', anchor=CENTER)
+    t3.heading('Debit', text='Debit', anchor=CENTER)
+    t3.heading('Credit', text='Credit', anchor=CENTER)
+   
+    t3.insert(parent='', index=0, iid=0, text='', values=('-----','-','-','-','-','-'))
+    t3.place(x=0, y=107, height=569, width=1220)
 
 
+    f18=Frame(t3,bg="white",relief=RAISED,bd=1)
+    f18.place(x=0,y=500,width=1220,height=40)
+    l5f6=Label(f18,text=" Opening Balance :",font=("Arial",9),bg="white",fg="black",borderwidth=0)
+    l5f6.place(x=200,y=0,)
+
+    l5f6s=Label(f18,text=" 4564545.00",font=("Arial",9,"bold"),bg="white",fg="black",borderwidth=0)
+    l5f6s.place(x=1100,y=0,)
+    l5f7=Label(f18,text="        Current Tottal :",font=("Arial",9),bg="white",fg="black",borderwidth=0)
+    l5f7.place(x=200,y=18,)
+
+    f19=Frame(selected_ledgers_frame,bg="white",relief=RAISED,bd=1)
+    f19.place(x=874,y=798,width=120,height=20)
+    l6f6=Label(f19,text="544650.00",font=("Arial",10,"bold"),bg="white",fg="black",borderwidth=0)
+    l6f6.place(x=0,y=0,anchor="nw")
+
+    f20=Frame(selected_ledgers_frame,bg="white",relief=RAISED,bd=1)
+    f20.place(x=994,y=798,width=120,height=20)
+    l7f6=Label(f20,text="544650.00",font=("Arial",10,"bold"),bg="white",fg="black",borderwidth=0)
+    l7f6.place(x=0,y=0,anchor="nw")
+
+    f21=Frame(selected_ledgers_frame,bg="white",relief=RAISED,bd=1)
+    f21.place(x=1114,y=98,width=104,height=20)
+    l7f6=Label(f21,text="452650.00",font=("Arial",10,"bold"),bg="white",fg="black",borderwidth=0)
+    l7f6.place(x=0,y=0,anchor="nw")
 
 
 
